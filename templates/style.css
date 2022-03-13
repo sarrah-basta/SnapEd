@@ -5,26 +5,29 @@
     font-family: "Rubik",sans-serif;
 }
 body{
-    background-color: rgb(206, 175, 154);
+    background-color: #d3e8f5;
 }
 .wrapper{
-    width: 85vw;
-    min-height: 50vmin;
-    padding: 50px 30px;
+    width: 70%;
+    height: 60%;
+    padding: 30px 30px;
     background-color: #ffffff;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-60%);
     top: 50%;
     left: 50%;
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+    /* display:flex; */
+    /* flex-direction: row; */
+    justify-content: center;
     display: grid;
     grid-template-columns: 5fr 7fr;
 }
 .editor{
     min-height: 35vmin;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     gap: 20px;
 }
@@ -49,31 +52,29 @@ body{
 }
 
 .result{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+
+    /* display: flex; */
+    /* flex-direction: row; */
+
+    padding-left: 20%;
+    
 }
 .result.reset{
-    position: relative;
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
 
 }
 .result.download{
-    position: relative;
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
 
 }
-.result.choice{
-    position: relative;
+.choice{
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
 
 }
 
@@ -81,7 +82,7 @@ body{
 
 .result img{
     display: block;
-    position: relative;
+    position: absolute;
     max-width: calc(100% - 4vmin);
     max-height: 45vmin;
     margin: auto;
@@ -92,35 +93,58 @@ body{
 input[type="file"]{
     display: none;
 }
-.result button{
-    display: block;
-    position: relative;
+.result label{
+    display: flex;
+    flex-wrap: wrap;
+    /* position: relative; */
     margin: 0 auto;
-    width: 220px;
+    width: 120px;
     background-color: #025bee;
     color: #ffffff;
     text-align: center;
-    padding: 16px 0;
+    padding: 12px 0;
     border-radius: 5px;
     font-size: 2.8vmin;
     font-weight: 400;
     cursor: pointer;
 }
 
-.result label{
+.navbar {
+    background-color: rgb(255, 141, 11);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 17%;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .navbar a {
+    float: left;
     display: block;
-    position: relative;
-    margin: 0 auto;
-    width: 220px;
-    background-color: #025bee;
-    color: #ffffff;
+    color: #f2f2f2;
     text-align: center;
-    padding: 16px 0;
-    border-radius: 5px;
-    font-size: 2.8vmin;
-    font-weight: 400;
-    cursor: pointer;
-}
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a green background color to the active link */
+  .navbar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the navbar on small screens */
+  .navbar .icon {
+    display: none;
+  }
 
 @media screen and (max-width: 620px) {
     .wrapper{

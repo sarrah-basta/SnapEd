@@ -68,6 +68,52 @@ function addcusFilter(){
     }
 }
 
+let checked1 = document.querySelectorAll(".cusfilter1 input[type='checkbox']");
+checked1.forEach( checker => {
+    checker.addEventListener('change', addcusFilter1);
+});
+
+function addcusFilter1(){
+    //render image anyways
+    let dst = new cv.Mat();
+    img = cv.imread(image)
+    cv.imshow('myCanvas', img);
+    dst.delete();
+    //if checked then apply filter only
+    if (this.checked) {
+        console.log("This is Checked")
+        let dst = new cv.Mat();
+        img = cv.imread(image)
+        cv.cvtColor(img, dst, cv.COLOR_RGBA2GRAY, 0);;
+        cv.imshow('myCanvas', dst);
+        dst.delete();
+    }
+}
+
+let checked2 = document.querySelectorAll(".cusfilter2 input[type='checkbox']");
+checked2.forEach( checker => {
+    checker.addEventListener('change', addcusFilter2);
+}); 
+
+function addcusFilter2(){
+    //render image anyways
+    let dst = new cv.Mat();
+    img = cv.imread(image)
+    cv.imshow('myCanvas', dst);
+    dst.delete();
+    //if checked then apply filter only
+    if (this.checked) {
+        console.log("This is Checked")
+        let dst = new cv.Mat();
+        img = cv.imread(image)
+        // cv2.cvtColor(img, dst, cv2.COLOR_BGR2GRAY, 0);
+        cv.imshow('myCanvas', dst);
+        dst.delete();
+    }
+}
+
+
+
 let radioBtns = document.querySelectorAll(".flip-option input[type='radio']");
 radioBtns.forEach( radioBtn => {
     radioBtn.addEventListener("click", flipImage);

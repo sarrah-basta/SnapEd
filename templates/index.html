@@ -1,80 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Editor</title>
+    <title>Ed</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://user-images.githubusercontent.com/84843295/158032557-8c894ebc-6a86-428c-bc01-3e7d80b96ddb.png">
     <script src="opencv.js" type="text/javascript"></script>
 </head>
-
 <body>
-    <div class="wrapper">
+    <!-- <div class="wrapper"> -->
+    <img src="https://user-images.githubusercontent.com/84843295/158032557-8c894ebc-6a86-428c-bc01-3e7d80b96ddb.png" 
+    style="height: 50px; width: 50px; padding-top: 2px; padding-left: 2px;">
+    <div class="result" style="padding-top: 5px; transform: translateY(-50px);">
+        <input type="file" id="upload-button" accept="Image/*">
+        <label for="upload-button" class="choice" style="font-size: small;">Choose An Image</label>
+        <label for="Download-button" class="download" style="font-size: small;">Download</label>
+        <!-- <label for="reset-button" class="reset" style="font-size: small;">Reset Changes</label> -->
+    
+    </div>
+    
+    <figure class="image-container">
+    <div class="wrapper" style="text-align: center;">
+    <!-- <div class="result"> -->
+        <div class="result">
+            <!-- <figure class="image-container"> -->
+            <img id="chosen-image">
+            <!-- <canvas id="myCanvas" width="300" height="200" style="border:1px solid #000000;"></canvas> -->
+        <!-- </figure> -->
+        </div>
+        <div class="result">
+        <!-- <figure class="image-container"> -->
+            <!-- <img id="chosen-image"> -->
+            <canvas id="myCanvas" width="300" height="200" style="border:1px solid #000000;"></canvas>
+        <!-- </figure> -->
+        </div>
+    <!-- </div> -->
+    </div>
+    </figure>
+    
+    <!-- Script -->
+    <div class="navbar" id="myNavbar">
         <div class="editor">
             <div class="filter">
-                <label for="blur">Blur</label>
+                <label for="blur" style="color: rgb(0, 0, 0);"><b>Blur</b></label>
                 <input type="range" min="0" max="5" value="0" step="0.1" id="blur">
             </div>
+
             <div class="filter">
-                <label for="contrast">Contrast</label>
+                <label for="contrast" style="color: rgb(0, 0, 0);"><b>Contrast</b></label>
                 <input type="range" min="0" max="200" value="100" id="contrast">
             </div>
+    
             <div class="filter">
-                <label for="hue-rotate">Hue-Rotate</label>
+                <label for="hue-rotate" style="color: rgb(0, 0, 0);"><b>Hue-Rotate</b></label>
                 <input type="range" min="0" max="360" value="0" id="hue-rotate">
             </div>
+
+
             <div class="filter">
-                <label for="sepia">Sepia</label>
+                <label for="sepia" style="color: rgb(0, 0, 0);"><b>Sepia</b></label>
                 <input type="range" min="0" max="100" value="0" id="sepia">
             </div>
 
             <!-- new filters -->
             <div class="cusfilter">
-                <label for="opencvfilter1">OpenCV Filters1</label>
+                <label for="opencvfilter1">Sketch</label>
+                <input type="checkbox" id="opencv" value="nameoffilter">
+            </div>
+
+
+            <div class="cusfilter1">
+                <label for="opencvfilter2">Gray</label>
+                <input type="checkbox" id="opencv" value="nameoffilter">
+            </div>
+
+            <div class="cusfilter2">
+                <label for="light">None</label>
                 <input type="checkbox" id="opencv" value="nameoffilter">
             </div>
 
             <div class="cusfilter">
-                <label for="opencvfilter2">OpenCV Filters2</label>
+                <label for="night">Night</label>
                 <input type="checkbox" id="opencv" value="nameoffilter">
             </div>
+
+            <div class="cusfilter">
+                <label for="sharpen">Oil Paint</label>
+                <input type="checkbox" id="opencv" value="nameoffilter">
+            </div>
+
+            <div class="cusfilter">
+                <label for="pencilSketch">Pencil Sketch</label>
+                <input type="checkbox" id="opencv" value="nameoffilter">
+            </div>
+            
             <!-- end of new filters -->
 
             <div class="flip-buttons">
                 <div class="flip-option">
                     <input type="radio" name="flip" id="no-flip" checked>
-                    <label for="no-flip">No Flip</label>
+                    <label for="no-flip" style="color: rgb(0, 0, 0);">No Flip</label>
                 </div>
                 <div class="flip-option">
                     <input type="radio" name="flip" id="flip-x">
-                    <label for="flip-x">Flip Horizontal</label>
+                    <label for="flip-x" style="color: rgb(0, 0, 0);">Flip Horizontal</label>
                 </div>
                 <div class="flip-option">
                     <input type="radio" name="flip" id="flip-y">
-                    <label for="flip-y">Flip Vertical</label>
+                    <label for="flip-y" style="color: rgb(0, 0, 0);">Flip Vertical</label>
                 </div>
             </div>
         </div>
-
-        <div class="result">
-            <figure class="image-container">
-                <img id="chosen-image">
-                <canvas id="myCanvas" width="300" height="200" style="border:1px solid #000000;"></canvas>
-            </figure>
-
-            <input type="file" id="upload-button" accept="Image/*">
-            <label for="upload-button" class="choice">Choose An Image</label>
-
-            <button for="DownLoad-button" class="download" onclick="download">Download</button>
-            <button for="reset-button" class="reset" onclick="reset">Reset Changes</button>
         </div>
-
-    </div>
-    <!-- Script -->
-    <script src="script.js"></script>
+        
+            
+        <!-- </div> -->
+        <script src="script.js"></script>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    
 </body>
-
 </html>
